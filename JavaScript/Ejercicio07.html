@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--7.	Modifica la función que quieras de calcular la nota media para que devuelva la media con 1 decimal. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 7</title>
+    <script>
+        var array = [2,3,4,5,6,7.77];
+    function for1 (arrayejemplo) {
+        let suma1=0;
+        for (let i=0; i<arrayejemplo.length;i++){
+            suma1= suma1+arrayejemplo[i];
+        }
+        suma1= suma1/arrayejemplo.length;
+    //toFixed nos devuelve los decimales redondeados en la cantidad que le pidamos
+        document.write(suma1.toFixed(1));
+    }
+
+    for1(array);
+    </script>
+</head>
+</html>

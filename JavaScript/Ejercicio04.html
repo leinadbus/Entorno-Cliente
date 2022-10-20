@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--4.	Haz un programa para que el usuario juegue a adivinar un número. Obtén un número al azar (busca por internet cómo se hace) 
+    y ve pidiendo al usuario que introduzca un número. Si es el que busca le dices que lo ha encontrado y si no, le mostrarás si el 
+    número que busca el mayor o menor que el introducido. El juego acaba cuando el usuario encuentra el número o cuando pulsa en ‘Cancelar’
+     (en ese caso le mostraremos un mensaje de que ha cancelado el juego).-->
+    <head>
+        <title>Ejercicio 4</title>
+    </head>
+
+    <body>
+        <h3>Se ha generado un número aleatorio entre 1 y 10</h3>
+        <label for="casillaEnvio">Adivina el número: </label>
+        <input type="number" id="casillaEnvio" class="casillaEnvio">
+          <button type="button" id="botón enviar" onclick="númeroAdivinar()">Comprobar</button>
+          <button type="button" id="botón enviar" onclick="pararJuego()">Cancelar</button>
+          <button type="button" id="recargar" onclick="recargar()">Recargar</button>
+          <div id="respuesta"></div>
+          <div id="recarga"></div>
+
+    <script>
+
+        var numeroAl  = Math.floor(Math.random() * 9)+1;
+//Este booleano nos permitirá controlar el botón cancelar.
+        var ejecucion=true;
+
+           function númeroAdivinar () {
+            let numerar = document.getElementById("casillaEnvio").value ;
+            
+                if (ejecucion && numerar < numeroAl){
+                    let mensaje = document.getElementById("respuesta").innerHTML="El número esta por arriba"
+                }else if (ejecucion && numerar > numeroAl){
+                    let mensaje = document.getElementById("respuesta").innerHTML="Te pasaste!"
+                }else if (ejecucion && numerar == numeroAl){
+                    document.getElementById("respuesta").style.backgroundColor="Green";
+                    let mensaje = document.getElementById("respuesta").innerHTML="Acertaste! El número secreto es: " + numeroAl;
+                    mensaje = document.getElementById("recarga").innerHTML="<br> Recarga la página para empezar de nuevo";
+                    ejecucion=false;
+                }
+            }
+//Esta función cambia el estado de ejecución para parar el programa.
+            function pararJuego () {
+                let mensaje = document.getElementById("respuesta").innerHTML="El juego se ha cancelado! <br> Recarga la página"
+                ejecucion=false;
+        }
+//Esta función recarga la página de un clic.
+            function recargar () {
+                let refresh = document.getElementById('recargar');
+            location.reload();
+            }
+    </script>
+    </body>
+</html>

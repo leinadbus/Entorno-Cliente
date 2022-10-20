@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--3.	Haz una arrow function que devuelva el cubo del número pasado como parámetro.-->
+<html lang="en-ES">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 3</title>
+</head>
+<body>  
+    <script>
+        //Función lambda
+        let cuadrado = (numero) => Math.pow(numero,3);
+        //Pedimos información al usuario
+        let numeroUser = prompt("Dame un valor");
+        //Llamamos a la función
+        let resultadoFinal = cuadrado(numeroUser);
+        //Escribimos el resultado en el HTML
+        document.write(resultadoFinal);
+    </script>
+</body>
+</html>

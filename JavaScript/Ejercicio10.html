@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--10.	Realiza un script que determine si la cadena de texto que se le pide al usuario es un palíndromo, 
+    es decir, si se lee de la misma forma desde la izquierda y desde la derecha.-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10</title>
+    <script>
+        //   /\s/g = En ascii es espacio
+        let textousuario=prompt("Ingresa un texto");
+        //Quitamos del String los posibles espacios existentes
+        textousuario=textousuario.replace(/\s/g,'');
+        //a mayusculas para evitar conflicto con caracteres
+        textousuario= textousuario.toUpperCase(); 
+        //document.write(textousuario);
+        let array1 = new Array ();
+        //split separa el string en caracteres lo que nos permite introducirlos como posiciones del array
+        array1=textousuario.split('');
+     
+        let array2 = new Array();
+
+        //Rellenamos el array2 con las posiciones inversas del array1
+        for (b=array1.length;b>=0;b--){
+            array2.push(array1[b]);
+            }
+
+        //Eliminamos la primera posición del array ya que se me rellena siempre con un primer hueco vacio   
+        array2.shift();
+        //Imprimomos en el HMTML los arrays para hacerlo más visual
+        document.write(array1,"<br>");
+        document.write(array2,"<br>");
+
+        //Instanciamos un booleano en true
+        let soniguales=true;
+        for (let i=0;i<=array1.length;i++){
+            //recorremos las posiciones de ambos arrays y comprobamos si NO son iguales
+            if (array1[i]!=array2[i]){
+                //Si una sola posición NO es igual, cambiamos el booleano y salimos del bucle
+                soniguales = false;
+                break;
+            } 
+        }
+
+        //Si el booleano se mantiene en true, nos indica que estamos ante un palíndromo
+        if(soniguales){
+                document.write("La frase es un palíndromo");
+        //Si cambió de estado, respuesta negativa
+            }else
+                document.write("La frase no es un palíndromo");
+
+    </script>
+</head>
+</html>

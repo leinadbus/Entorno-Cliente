@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--6.	Haz 3 funciones a las que se le pasa 
+como parámetro un array de notas y devuelve la nota media. Cada una usará un for de una de las 3 formas vistas. -->
+<html lang="en-ES">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 6</title>
+<script>
+    var array = [2,3,4,5,6,7.77];
+function for1 (arrayejemplo) {
+    let suma1=0;
+    for (let i=0; i<arrayejemplo.length;i++){
+        suma1= suma1+arrayejemplo[i];
+    }
+    suma1= suma1/arrayejemplo.length;
+    document.write(suma1);
+}
+
+function for2 (arrayejemplo) {
+    let suma1=0;
+    for (let indice in arrayejemplo){
+        suma1 += arrayejemplo[indice];
+    }
+    suma1= suma1/arrayejemplo.length;
+    document.write("<br>", suma1);
+}
+
+function for3 (arrayejemplo) {
+    let suma1=0;
+    for (let valor of arrayejemplo){
+        suma1 += valor;
+    }
+    suma1= suma1/arrayejemplo.length;
+    document.write("<br>", suma1);
+}
+
+for1(array);
+for2(array);
+for3(array);
+
+</script>
+</head>
+</html>

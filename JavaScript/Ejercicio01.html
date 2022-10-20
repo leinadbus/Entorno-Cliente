@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--1.	Declara las siguientes variables:
+•	Tres variables numéricas cuyos valores sean respectivamente 3 números consecutivos 
+cuya suma sea el número que introduce el usuario. Ejemplo: Si el usuario introduce el 
+número 6, las variables tendrán los valores: num1= 1, num2= 2, num3= 3. 
+Nota: el usuario debe introducir un número mayor o igual a 5.
+•	Una variable cuyo texto sea tu nombre y apellidos y se muestre en la consola.
+-->
+<html lang="en-ES">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 01</title>
+</head>
+<body>
+    <script>
+    //Declaramos las variables que vamos a usar en este ejercicio
+        let variableusuario = prompt("Dame valor superior a 5");
+        let variable1;
+        let variable2;
+        let variable3;
+    //Comprobamos que lo que hemos pedido es correcto y realizamos las operaciones
+        if (variableusuario>5) {
+            variable1=(variableusuario/3);
+             variable2=(variable1+1);
+             variable3=(variable1-1); 
+        }else {
+            alert("Es necesario un valor mayor o igual que 5");
+        }
+    //Pedimos al usuario la segunda información necesaria
+        let nombreusuario = prompt("Dime tu nombre y apellidos");
+    </script>
+
+    <!--Escribimos la información en el HTML (no se como hacerlo mejor)-->
+   <p>El usuario ha introducido el numero: 
+    <script>document.write(variableusuario);</script>
+    <br>
+    El número se consigue sumando los siguientes numeros: 
+    <br>
+
+    <script> document.write(variable2); </script>
+    <br>
+
+    <script> document.write(variable1); </script>
+    <br>
+
+    <script> document.write(variable3); </script>
+    <br>
+    El nombre del usuario es: 
+
+    <script> document.write(nombreusuario); </script>
+
+    </p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--9.	Haz una función a la que se le pasa un DNI (ej. 12345678w o 87654321T) y 
+    devolverá si es correcto o no. La letra que debe corresponder a un DNI correcto 
+    se obtiene dividiendo la parte numérica entre 23 y cogiendo de la cadena 
+    ‘TRWAGMYFPDXBNJZSQVHLCKE’ la letra correspondiente al resto de la división. 
+    Por ejemplo, si el resto es 0 la letra será la T y si es 4 será la G. Prueba 
+    la función en la consola con tu DNI.-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 9</title>
+<script> 
+//Declaramos la variable que almacena el dni introducido
+    let dni= "51482282W";
+//Recogemos los números sin a letra
+    let numeros = parseInt(dni.substring(0,8));
+//Recogemos la letra
+    let letra = dni.charAt(8);
+//Declaramos la variable de las letras
+    let cadena ="TRWAGMYFPDXBNJZSQVHLCKE";
+
+    numeros= (numeros%23);
+//Buscamos la posición dentro de la cadena según el resto anterior
+    let caracter= cadena.charAt(numeros);
+//Comparamos
+    if(caracter===letra){
+        document.write("El dni es correcto");
+    }else {
+        document.write("El dni NO es correcto");
+    }
+</script>
+</head>
+</html>

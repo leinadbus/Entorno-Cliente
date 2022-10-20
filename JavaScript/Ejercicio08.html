@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--8.	Modifica la función que devuelve el cubo de un número para que compruebe si el parámetro 
+    pasado es un número entero. Si no es un entero o no es un número mostrará un alert indicando 
+    cuál es el problema y devolverá false.-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 8</title>
+    <script>
+        let cuadrado = (numero) => {
+            let resultado=0 ;
+            if(numero%1==0){  //Number.isInteger(numero) no funciona o.?
+                resultado =Math.pow(numero,3);
+                return(resultado);
+            }else {
+                return "No es un número";
+            }
+        }
+
+    let numeroUser = prompt("Dame un valor");
+    document.write(cuadrado(numeroUser));
+    </script>
+</head>
+</html>
