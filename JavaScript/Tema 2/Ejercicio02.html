@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--2. Haz una función 
+    que ordene las notas de un array pasado como parámetro. 
+    Si le pasamos [4,8,3,10,5] debe devolver [3,4,5,8,10]. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 02</title>
+</head>
+<body>
+    <script>
+
+        function ordenar (objeto) {
+            let a = objeto.sort();
+            return a;
+        }
+
+        let array = new Array(8,2,4,9,3);
+        document.write(array,"<br>");
+
+        ordenar(array);
+        document.write(array);
+
+    </script>
+</body>
+</html>
