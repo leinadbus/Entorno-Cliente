@@ -9,44 +9,50 @@ f) Devuelve otro array con los meses en mayúsculas.
 g) Indica si algún mes es el ‘Octubre’.
 -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 3</title>
 </head>
+
 <body>
-    <script>
-    let meses = new Array ("Enero","Febrero","Marzo", "Abril","Mayo",
-"Junio","julio","Agosto","Septiembre","Octumbre", "Noviembre", "Diciembre");
+    <script type="text/javascript">
+        let meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
+            "Junio", "julio", "Agosto", "Septiembre", "Octumbre", "Noviembre", "Diciembre");
 
-document.write(meses,"<br>");
+        document.write(meses, "<br>");
 
-function eme (objeto){
-    var mes
-            for (let i=0; i<=objeto.length;i++){
+        function eme(objeto) {
+            var mes;
+            document.write("Los meses que empiezan por M son: ");
+            for (let i = 0; i <= objeto.length; i++) {
                 mes = objeto[i].charAt(0);
-                if (mes == "M"){
+                if (mes === 'M') {
+
                     document.write(objeto[i]);
+                    document.write("<br>");
                 }
             }
         }
 
-function primer (objeto) {
-    for (let i=0; i<=objeto.length;i++){
-                mes = objeto[i].charAt(0);
-                if (mes == "M"){
-                    document.write(objeto[i]);
-                }
-            }
-    //let primerMmes = objeto.find( mes => mes.charAt(0) ==  "M");
-    //return primerMmes;
-}
-//starswith buscar
-document.write(eme(meses));
+        function primer(objeto) {
+            document.write("El primer mes que empieza por M son: ");
+            let primerMmes = objeto.find(mes => mes.charAt(0) == 'M');
+            return primerMmes;
+        }
+        //let primerMmes = objeto.find( mes => mes.charAt(0) ==  "M");
+        //return primerMmes;
 
+        //startswith buscar
+        document.write(eme(meses));
 
-document.write(primer(meses));
+        document.write(primer(meses));
 
     </script>
-    
+    <script>
+        document.write(primer(meses));
+    </script>
+
 </body>
+
 </html>
