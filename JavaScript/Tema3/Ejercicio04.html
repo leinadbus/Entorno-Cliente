@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Productos {
+            constructor(nombre, categoria, unidades, precio){
+                this.nombre=nombre;
+                this.categoria=categoria;
+                this.unidades=unidades;
+                this.precio=precio;
+            }
+
+            importe () {
+                let importe= this.unidades*this.precio;
+                return (importe);
+            }
+
+            Productos.prototype.getInfo = Productos() {
+                return this.nombre + ' (' + this.categoria + '): Unidades ' + this.unidades
+                + ' x ' + this.precio +'€ = ' + this.importe() + '€' ;
+                
+            }
+
+        }
+
+        class Televisores extends Productos {
+            constructor (nombre, categoria, unidades, precio,tamaño) {
+                super(nombre, categoria, unidades, precio);
+                this.tamaño=tamaño;
+            }
+
+            getInfo () {
+                return this.tamaño + ' ' + this.nombre;
+            }
+        }
+
+        let tvsamsung = new Productos('tvSamsung','televisores', 4,345.95);
+        //tvsamsung.importe();
+        document.write(tvsamsung.getInfo());
+    </script>
+</body>
+</html>

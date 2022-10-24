@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--3. Crea una clase Televisores que hereda de Productos y que tiene 
+    una nueva propiedad llamada tamaño. El método getInfo mostrará el tamaño junto al nombre.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script src="Productos.js"></script>
+    <script>
+        class Televisores extends Productos {
+            constructor (nombre, categoria, unidades, precio,tamaño) {
+                super(nombre, categoria, unidades, precio);
+                this.tamaño=tamaño;
+            }
+
+            getInfo () {
+                return this.tamaño + ' ' + this.nombre;
+            }
+        }
+
+        let producto = new Televisores ('tvSamsung', 'televisores', 4, 345.95,45);
+        document.write(producto.getInfo());
+    </script>
+</body>
+</html>
