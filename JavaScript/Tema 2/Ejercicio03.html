@@ -14,6 +14,39 @@ g) Indica si algún mes es el ‘Octubre’.
     <title>Ejercicio 3</title>
 </head>
 <body>
+    <script>
+    let meses = new Array ("Enero","Febrero","Marzo", "Abril","Mayo",
+"Junio","julio","Agosto","Septiembre","Octumbre", "Noviembre", "Diciembre");
+
+document.write(meses,"<br>");
+
+function eme (objeto){
+    var mes
+            for (let i=0; i<=objeto.length;i++){
+                mes = objeto[i].charAt(0);
+                if (mes == "M"){
+                    document.write(objeto[i]);
+                }
+            }
+        }
+
+function primer (objeto) {
+    for (let i=0; i<=objeto.length;i++){
+                mes = objeto[i].charAt(0);
+                if (mes == "M"){
+                    document.write(objeto[i]);
+                }
+            }
+    //let primerMmes = objeto.find( mes => mes.charAt(0) ==  "M");
+    //return primerMmes;
+}
+//starswith buscar
+document.write(eme(meses));
+
+
+document.write(primer(meses));
+
+    </script>
     
 </body>
 </html>

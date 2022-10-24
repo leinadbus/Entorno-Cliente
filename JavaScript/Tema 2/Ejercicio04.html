@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+4. Dado el array de notas (arrayNotas = [5.2, 3.9, 6, 9.75, 7.5, 3]) devuelve la nota media.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+      var arrayNotas = [5.2, 3.9, 6, 9.75, 7.5, 3];
+     var suma=0;
+     function media (objeto){
+      for (let i = 0; i < objeto.length; i++) {
+        
+        suma = suma + objeto[i];
+
+      } 
+      suma = suma/objeto.length;
+      return suma;
+     }
+
+     document.write(media(arrayNotas));
+    </script>
+</body>
+</html>

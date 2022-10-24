@@ -11,11 +11,12 @@
     <script>
 
         function ordenar (objeto) {
-            let a = objeto.sort();
+        //Esta función nos permite ordenar números de dos cifras
+            let a = objeto.sort(function(a, b) {return a - b; });
             return a;
         }
 
-        let array = new Array(8,2,4,9,3);
+        let array = new Array(10,2,4,29,3);
         document.write(array,"<br>");
 
         ordenar(array);
