@@ -3,34 +3,36 @@
     Además, tendrá un método getInfo que devolverá: ‘Nombre (categoría):  
     unidades uds x precio € = importe €’. Crea 3 productos diferentes.-->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 2</title>
 </head>
+
 <body>
     <script>
         class Productos {
-            constructor(nombre, categoria, unidades, precio){
-                this.nombre=nombre;
-                this.categoria=categoria;
-                this.unidades=unidades;
-                this.precio=precio;
+            constructor(nombre, categoria, unidades, precio) {
+                this.nombre = nombre;
+                this.categoria = categoria;
+                this.unidades = unidades;
+                this.precio = precio;
             }
 
-            importe () {
-                let importe= this.unidades*this.precio;
+            importe() {
+                let importe = this.unidades * this.precio;
                 return (importe);
             }
 
-            getInfo () {
+            getInfo() {
                 return this.nombre + ' (' + this.categoria + '): Unidades ' + this.unidades
-                + ' x ' + this.precio +'€ = ' + this.importe() + '€' ;
-                
+                    + ' x ' + this.precio + '€ = ' + this.importe() + '€';
+
             }
 
         }
 
-        let tvsamsung = new Productos('tvSamsung','televisores', 4,345.95);
+        let tvsamsung = new Productos('tvSamsung', 'televisores', 4, 345.95);
         let tvSony = new Productos('tvSony', 'Televisor', 6, 299);
         let tvPhilips = new Productos('tvPhilips', 'Televisor', 7, 199);
         document.write(tvsamsung.getInfo());
@@ -39,4 +41,5 @@
 
     </script>
 </body>
+
 </html>

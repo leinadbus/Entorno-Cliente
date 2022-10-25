@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        class Productos {
+            constructor(nombre, categoria, unidades, precio) {
+                this.nombre = nombre;
+                this.categoria = categoria;
+                this.unidades = unidades;
+                this.precio = precio;
+            }
+
+            importe() {
+                let importe = this.unidades * this.precio;
+                return (importe);
+            }
+
+            getInfo() {
+                return this.nombre + ' (' + this.categoria + '): Unidades ' + this.unidades
+                    + ' x ' + this.precio + '€ = ' + this.importe() + '€';
+
+            }
+
+        }
+
+        class Televisores extends Productos {
+            constructor(nombre, categoria, unidades, precio, tamaño) {
+                super(nombre, categoria, unidades, precio);
+                this.tamaño = tamaño;
+            }
+
+            getInfo() {
+                return this.tamaño + ' ' + this.nombre;
+            }
+        }
+
+
+        function Productos(nombre, categoria, unidades, precio) {
+            this.nombre = nombre;
+            this.categoria = categoria;
+            this.unidades = unidades;
+            this.precio = precio;
+        }
+
+        Productos.prototype.getInfo = function () {
+            return this.nombre + ' (' + this.categoria + '): Unidades ' + this.unidades
+                + ' x ' + this.precio + '€ = ' + this.importe() + '€';
+
+        }
+
+
+        let tvsamsung = new Productos('tvSamsung', 'televisores', 4, 345.95);
+        //tvsamsung.importe();
+        document.write(tvsamsung.getInfo());
+    </script>
+</body>
+
+</html>

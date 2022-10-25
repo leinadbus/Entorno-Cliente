@@ -31,27 +31,34 @@ g) Indica si algún mes es el ‘Octubre’.
 
                     document.write(objeto[i]);
                     document.write("<br>");
+                    return objeto[i];
                 }
             }
         }
 
         function primer(objeto) {
-            document.write("El primer mes que empieza por M son: ");
+           
             let primerMmes = objeto.find(mes => mes.charAt(0) == 'M');
             return primerMmes;
         }
-        //let primerMmes = objeto.find( mes => mes.charAt(0) ==  "M");
-        //return primerMmes;
 
-        //startswith buscar
+        
+        function posicion (objeto) {
+            document.write();
+           // let primerMmes = objeto.find(mes => mes.charAt(0) == 'M');
+            let primerMes = objeto.indexOf(primer(objeto));
+            return primerMes;
+        }
+
+     //findndex???
         document.write(eme(meses));
 
-        document.write(primer(meses));
+        document.write("El primer mes que empieza por M es: ",primer(meses));
+        document.write("<br>");
+        document.write("La posición del primer mes que empieza por M es: ",posicion(meses));
 
     </script>
-    <script>
-        document.write(primer(meses));
-    </script>
+
 
 </body>
 
