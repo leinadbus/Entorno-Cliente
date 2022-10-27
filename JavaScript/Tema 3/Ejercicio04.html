@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--4. Modifica las clases Productos y Televisores para que el método que muestra los datos 
+    del producto se llame de una manera más adecuada.-->
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 4</title>
@@ -8,9 +9,7 @@
 
 <body>
     <script>
-        //!!!!!!!!!!!!!!!!!!!! NO ENTIENDO LOS APUNTES DEL MOODLE DEL ".prototype.getInfo = function ()" {
-
-        /*
+       
         class Productos {
             constructor(nombre, categoria, unidades, precio) {
                 this.nombre = nombre;
@@ -24,7 +23,7 @@
                 return (importe);
             }
 
-            getInfo() {
+            toString() {
                 return this.nombre + ' (' + this.categoria + '): Unidades ' + this.unidades
                     + ' x ' + this.precio + '€ = ' + this.importe() + '€';
 
@@ -38,30 +37,16 @@
                 this.tamaño = tamaño;
             }
 
-            getInfo() {
+            toString() {
                 return this.tamaño + ' ' + this.nombre;
             }
         }
 
-function Tele(nombre, categoria, unidades, precio) {
-            this.nombre = nombre;
-            this.categoria = categoria;
-            this.unidades = unidades;
-            this.precio = precio;
-        }
-
-        Productos.prototype.getInfo = function () {
-            return nombre + ' (' + categoria + '): Unidades ' + unidades
-                + ' x ' + precio + '€ = ' ;
-
-        }
-
-
 
         let tvsamsung = new Productos('tvSamsung', 'televisores', 4, 345.95);
         //tvsamsung.importe();
-        document.write(tvsamsung.getInfo());
-        */
+        document.write(tvsamsung.toString());
+        
     </script>
 </body>
 
