@@ -9,57 +9,87 @@ f) Devuelve otro array con los meses en mayúsculas.
 g) Indica si algún mes es el ‘Octubre’.
 -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio 3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
 </head>
-
 <body>
     <script type="text/javascript">
-        let meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
-            "Junio", "julio", "Agosto", "Septiembre", "Octumbre", "Noviembre", "Diciembre");
+        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        document.write(meses, "<br>");
-
-        function eme(objeto) {
-            var mes;
-            document.write("Los meses que empiezan por M son: ");
-            for (let i = 0; i <= objeto.length; i++) {
-                mes = objeto[i].charAt(0);
-                if (mes === 'M') {
-
-                    document.write(objeto[i]);
-                    document.write("<br>");
-                    return objeto[i];
+        function eme (array){
+            var mesesM=[];
+            for(var i= 0; i<array.length;i++){
+                if(array[i].charAt(0)=='M'){
+                    mesesM.push(array[i]);
                 }
             }
+            return mesesM;
         }
 
-        function primer(objeto) {
+        function primer(array) {
            
-            let primerMmes = objeto.find(mes => mes.charAt(0) == 'M');
-            return primerMmes;
-        }
+           let primerMmes = array.find(mes => mes.charAt(0) == 'M');
+           return primerMmes;
+       }
 
-        
-        function posicion (objeto) {
+       function posicion (array) {
             document.write();
-           // let primerMmes = objeto.find(mes => mes.charAt(0) == 'M');
-            let primerMes = objeto.indexOf(primer(objeto));
+           // let primerMmes = array.find(mes => mes.charAt(0) == 'M');
+            let primerMes = array.indexOf(primer(array));
             return primerMes;
         }
 
-     //findndex???
-        document.write(eme(meses));
+        function empieza(objeto) {
+           let confirmacion = false;
+           let primerMmes = objeto.find(mes => mes.charAt(0) == 'S');
+           if(primerMmes){
+            confirmacion=true;
+           }
+           return confirmacion;
+       }
 
-        document.write("El primer mes que empieza por M es: ",primer(meses));
-        document.write("<br>");
-        document.write("La posición del primer mes que empieza por M es: ",posicion(meses));
+       function todosO (objeto) {
+        var confirmación=true;
+        for(var i=0;i<=objeto.length;i++){
+           let cadena=objeto[i];
+           let caracter=cadena.charAt(cadena.length-1);
+            if (caracter = 'o'){
+                confirmación=false;
+                }
+            return confirmación;
+            }   
+        }
 
+        function mayusculas (array) {
+            let aMesesM = new Array;
+            for(var i = 0; i < array.length; i++){
+                aMesesM.push(array[i].toUpperCase());
+            }
+            return aMesesM;
+        }
+
+        function octubre(array){
+            var existe = false;
+            for(var i = 0; i < array.length; i++){
+                if (array[i] == "Octubre") {
+                    existe = true;
+                    break;
+                }
+            }
+            return existe;
+        }
+
+        document.write("A) Los meses que empiezan por M son: ",eme(meses),"<br>");
+        document.write("B) El primer mes que empieza por M es: ",primer(meses),"<br>");
+        document.write("C) La posición que ocupa el primer mes con M es: ", posicion(meses),"<br>");
+        document.write("D) ¿Algún mes empieza por S?: ",empieza(meses),"<br>");
+        document.write("E) ¿Todos los meses acaban en O?: ",todosO(meses),"<br>")
+        document.write("F) ",mayusculas(meses),"<br>");
+        document.write("G) ¿Existe el mes Octubre? ",octubre(meses));
     </script>
-
-
 </body>
-
 </html>
