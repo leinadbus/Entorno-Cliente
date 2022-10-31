@@ -47,5 +47,21 @@
   <input type="button" id="button2" value="Button 2">
 </p>
   </form>
-  <script src="Ejercicio1.js"></script>
+  <script >
+
+    console.log("Ejercicio 3");
+    console.log("El innerHTML de la etiqueta de Escoge sexo");
+    console.log(document.querySelectorAll('label')[3].innerHTML+='Hola');
+    console.log(document.getElementsByTagName('label')[3].innerHTML+=' Adios');
+    console.log("El text content de esa etiqueta");
+    console.log(document.querySelectorAll('label')[3].textContent);
+    console.log(document.getElementsByTagName('label')[3].textContent);
+    console.log("El valor del primer input de sexo");
+    console.log(document.querySelectorAll('sexo')[0]);
+    console.log(document.getElementsByName('sexo')[0]);
+    console.log("El valor del sexo que esté seleccionado");
+    console.log(document.getElementsByName('sexo')[0].checked);
+    console.log(document.querySelectorAll('value')[0]);
+
+  </script>
 </body></html>
