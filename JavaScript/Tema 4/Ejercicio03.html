@@ -51,15 +51,20 @@
 
     console.log("Ejercicio 3");
     console.log("El innerHTML de la etiqueta de Escoge sexo");
+    document.getElementByIdTagName('label'.item(3).innerHTML); //ó igual pero con querySelectorAll
     console.log(document.querySelectorAll('label')[3].innerHTML+='Hola');
     console.log(document.getElementsByTagName('label')[3].innerHTML+=' Adios');
     console.log("El text content de esa etiqueta");
+    //Igual que el primero pero con .textContent
     console.log(document.querySelectorAll('label')[3].textContent);
     console.log(document.getElementsByTagName('label')[3].textContent);
     console.log("El valor del primer input de sexo");
+    //Igual pero con .value
     console.log(document.querySelectorAll('sexo')[0]);
     console.log(document.getElementsByName('sexo')[0]);
     console.log("El valor del sexo que esté seleccionado");
+    //Hay que hacer un listener: O dentro de un bucle
+    //document.queryselector('input[name=sexo]:checked').value;
     console.log(document.getElementsByName('sexo')[0].checked);
     console.log(document.querySelectorAll('value')[0]);
 
