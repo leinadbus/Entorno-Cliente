@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Pedir un número entero mayor que 1 al usuario (en promp) y calcular y mostrar:
+            //a) si el número es par o impar
+            //b)Si el número es primo o no
+            //La tabla de multplicar
+            //Los divisores del número
+            //El equivalente en binario
+            //Controlar lo que mete el usuario
+        
+            var numeroUser = prompt("Por favor introduzca un número");
+
+            function controlNumero (numeroUser){
+                let numero = parseInt(numeroUser);
+                let numberr= typeof numero;
+
+                if (numberr != "number"){
+                    document.write("No se ha introducido un número válido");
+                }
+                
+                return numero;
+                
+            }
+
+            function parImpar (numeroUser){
+                if (numeroUser%2==0){
+                    return ("El numero es par");
+                }else 
+                return ("el numero es impar");
+            }
+
+            function tablaMultiplicar(numeroUser){
+              
+                for (i=1;i<11;i++){
+                    document.write("</br>",numeroUser,"x",i,"=",(numeroUser*i));
+                }
+            }
+
+            function esPrimo (numeroUser){
+                if (numeroUser==0 || numeroUser==1 || numeroUser==4){
+                    return ("</br>El número no es primo")
+                }else{
+                    for(x=2;x<numeroUser/2;x++){
+                        if(numeroUser%x==0){
+                            return ("<br>El numero no es primo");
+                        }
+                        else return ("</br>El numero es primo");
+                    }
+                }
+            }
+
+
+            function divisores (numeroUser){
+                for(i=1;i<=numeroUser;i++){
+                    if(numeroUser%i==0){
+                        document.write("</br>",i," es divisor de ",numeroUser);
+                    }
+                }
+            }
+
+            function binario (numeroUser){
+                let binario=numeroUser;
+                let resto;
+                do {
+                    resto += binario%2;
+                    binario += numeroUser/2;
+                    document.write()
+
+
+                }while(numeroUser/2!=1)
+            }
+
+            document.write(controlNumero(numeroUser),"</br>");
+            document.write(parImpar(numeroUser),"</br>");
+            document.write(tablaMultiplicar(numeroUser));
+            document.write(esPrimo(numeroUser));
+            document.write(divisores(numeroUser));
+
+
+    </script>
+</body>
+</html>
