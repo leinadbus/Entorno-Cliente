@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--  Recoge los números introducidos por el usuario hasta que introduzca un número negativo.
+
+Nota 1: El usuario puede introducir números enteros o decimales.
+
+Nota 2: si el usuario introduce algo distinto a un número, debemos indicarle que se está esperando un número (en una alerta).
+
+Con el conjunto de números deberá calcularse y mostrarse (en el cuerpo de la página y por consola) lo siguiente:
+
+·        Los números introducidos por el usuario en el mismo orden en el que se han introducido.
+
+·        Indicar cuantos números ha introducido el usuario.
+
+·        La suma de todos los números introducidos.
+
+·        La media de todos los números introducidos.
+
+·        La mediana de todos los números introducidos. La mediana de un conjunto de datos, es el dato central del conjunto ordenado; cuando el número de datos de un conjunto es un número par, la mediana es la media de los dos datos centrales.
+
+ Ejemplo 1: 2, 4, 6, 7, 9 -> mediana = 6
+ Ejemplo 1: 2, 4, 6, 7, 7, 9 -> mediana = 6.5
+·        Los números introducidos ordenados de menor a mayor.
+
+·        Los números introducidos ordenados de mayor a menor.
+
+·        El mayor de los números introducidos.
+
+·        El menor de los números introducidos.
+
+·        Los números enteros comprendidos entre el menor y el mayor de los números introducidos.
+
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    let numero =[] ;
+    var numeroUser;
+    var num;
+    var contadorNumeros=0;
+
+
+    //FUNCIONES
+
+    function sumatotal (objeto){
+        var suma=0;
+        var valor;
+      for (let i = 0; i < objeto.length; i++) {
+        valor=Number.parseFloat(objeto[i]);
+        suma = suma + valor;
+      } 
+      return suma;
+     }
+
+
+     function media (objeto){
+        var suma=0;
+        var valor;
+      for (let i = 0; i < objeto.length; i++) {
+        valor=Number.parseFloat(objeto[i]);
+        suma = suma + valor;
+      } 
+      suma = suma/objeto.length;
+      return suma;
+     }
+
+
+
+     function mediana (objeto) {
+        let longitud=objeto.length;
+        let mediana=(longitud%2);
+        let numero= (longitud/2);
+
+        if (mediana==0){
+            let numero1=numero-1;
+            let array=[];
+            array.push(objeto[numero1]);
+            array.push(objeto[numero]);
+            return array;
+        }else {
+            numero -=0.5;
+            return objeto[numero];
+        }
+
+     }
+
+
+     function ordenarAsc (objeto) {
+        //Esta función nos permite ordenar números de dos cifras
+            let a = objeto.sort(function(a, b) {return a - b; });
+            return a;
+        }
+
+
+
+        function ordenarDes (objeto) {
+        //Esta función nos permite ordenar números de dos cifras
+            let a = objeto.sort(function(a, b) {return b - a; });
+            return a;
+        }
+
+
+
+        function numeroMayor (objeto){
+            ordenarDes(objeto);
+            return objeto[0];
+        }
+
+
+        function numeroMenor (objeto){
+            ordenarAsc(objeto);
+            return objeto[0];
+        }
+
+
+        function numerosComprendidos (objeto){
+            numeroMenor(objeto);
+            let conver=[];
+            for (i=1;i<objeto.length-1;i++){
+                conver.push(objeto[i]);
+            }
+            return conver;
+        }
+
+//CONTROL
+
+    do {
+
+        numeroUser= prompt("Por favor, introduce valores numéricos. Cuando no quieras introducir más, introduce un valor negativo");
+        //var controlador=Number.isNaN(numeroUser);
+    //if(!isNaN(numeroUser)==false){
+
+        if(numeroUser>=0 ){
+            numero.push(numeroUser);
+            contadorNumeros++;
+        }
+          
+    // }else {
+    //       document.write("El valor introducido debe de ser un valor numérico");
+         
+    //   }
+      
+    }while (numeroUser>=0 );
+
+
+
+
+//RESULTADOS
+    document.write("Los numeros introducidos son: ",numero,"</br>");
+    document.write("Has introducido una cantida de numeros igual a: ",contadorNumeros,"</br>");
+    document.write("La suma total de los valores es: ",sumatotal(numero),"</br>");
+    document.write("La media de los valores es: ",media(numero),"</br>");
+    document.write("La mediana de los valores es: ",mediana(numero),"</br>");
+    document.write("Los números introducidos de menor a mayor: ",ordenarAsc(numero),"</br>");
+    document.write("Los números introducidos de mayor a menor: ",ordenarDes(numero),"</br>");
+    document.write("El número mayor de todos es: ", numeroMayor(numero),"</br>");
+    document.write("El número menor de todos es: ", numeroMenor(numero),"</br>");
+    document.write("Los numeros comprendidos entre el menor y el mayor son: ", numerosComprendidos(numero),"</br>");
+   
+   
+   
+   </script>
+</body>
+</html>
