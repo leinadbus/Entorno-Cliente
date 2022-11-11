@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class InformacionEmpresa {
+
+            constructor(nombre, cif, direccion, telefono) {
+                this.NombreEmpresa = nombre;
+                this.CifEmpresa = cif;
+                this.DireccionEmpresa = direccion;
+                this.TelefonoEmpresa = telefono;
+            }
+
+            getInfo() {
+                return "Nombre de la empresa: " + this.NombreEmpresa + " | CIF: " + this.CifEmpresa + " | Dirección: " + this.DireccionEmpresa + " Teléfono: " + this.TelefonoEmpresa;
+            }
+
+        }
+
+        class Facturasimplificada extends InformacionEmpresa {
+
+
+            constructor(NombreEmpresa, CifEmpresa, DireccionEmpresa, TelefonoEmpresa, fecha, identificador, descripcion, impSinIva) {
+                super(NombreEmpresa, CifEmpresa, DireccionEmpresa, TelefonoEmpresa);
+                this.FechaFactura = fecha;
+                this.IdentificadorFactura = identificador;
+                this.DescripcionVenta = descripcion;
+                this.ImporteSinIva = impSinIva;
+                this.ImporteConIva = impSinIva * 1.21;
+                this.ImportedelIva = impSinIva * 0.21;
+            }
+
+
+
+            importe(importe) {
+                importe = importe * 1.21;
+                return importe;
+            }
+
+            IVA(importe) {
+                importe = importe * 0.21;
+                return importe;
+            }
+
+            getInfo() {
+                return super.getInfo() + "Factura:[</br>" + " | Fecha de la factura: " + this.FechaFactura + " </br>| IDENFAC: " + this.IdentificadorFactura + " </br>| Descripción de la venta: " + this.DescripcionVenta +
+                    " </br>| Importe sin IVA: " + this.ImporteSinIva + "€ </br>| Importe con IVA: " +
+                    this.ImporteConIva
+                    + "€ </br>| Importe del IVA: " + this.ImportedelIva + "€ ]</br></br>";
+            }
+
+
+
+        }
+
+        factura1 = new Facturasimplificada("CESO", "56985897B", "C/ AMAPOLAS 256", 962354785, "10/02/2022", 0001, "Venta sólida", 100);
+        document.write(factura1.getInfo());
+
+        factura2 = new Facturasimplificada("REPSOL", "56984587F", "C/ GAVIA 2", 951478852, "10/02/2022", 0002, "Venta pactada", 256);
+        document.write(factura2.getInfo());
+    </script>
+</body>
+
+</html>
