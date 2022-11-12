@@ -21,12 +21,12 @@
             }
 
             getInfo() {
-                return "Nombre de la empresa: " + this.NombreEmpresa + " | CIF: " + this.CifEmpresa + " | Dirección: " + this.DireccionEmpresa + " Teléfono: " + this.TelefonoEmpresa;
+                return "EMPRESA: " + this.NombreEmpresa + "</br> CIF: " + this.CifEmpresa + " </br> Dirección: " + this.DireccionEmpresa + "</br> Teléfono: " + this.TelefonoEmpresa;
             }
 
         }
 
-        class Facturasimplificada extends InformacionEmpresa {
+        class FacturaSimplificada extends InformacionEmpresa {
 
 
             constructor(NombreEmpresa, CifEmpresa, DireccionEmpresa, TelefonoEmpresa, fecha, identificador, descripcion, impSinIva) {
@@ -46,27 +46,47 @@
                 return importe;
             }
 
+            // importe () {
+            //     if(this.ImporteConIva==0){
+            //         return this.ImporteSinIva*1.21;
+            //     }
+            // }
+
             IVA(importe) {
                 importe = importe * 0.21;
                 return importe;
             }
 
             getInfo() {
-                return super.getInfo() + "Factura:[</br>" + " | Fecha de la factura: " + this.FechaFactura + " </br>| IDENFAC: " + this.IdentificadorFactura + " </br>| Descripción de la venta: " + this.DescripcionVenta +
-                    " </br>| Importe sin IVA: " + this.ImporteSinIva + "€ </br>| Importe con IVA: " +
+                return super.getInfo() + "</br></br>FACTURA:</br>" + "  Fecha de la factura: " + this.FechaFactura + " </br> IDENFAC: " + this.IdentificadorFactura + " </br> Descripción de la venta: " + this.DescripcionVenta +
+                    " </br> Importe sin IVA: " + this.ImporteSinIva + "€ </br> Importe con IVA: " +
                     this.ImporteConIva
-                    + "€ </br>| Importe del IVA: " + this.ImportedelIva + "€ ]</br></br>";
+                    + "€ </br> Importe del IVA: " + this.ImportedelIva + "€ ]</br>";
             }
 
 
 
         }
 
-        factura1 = new Facturasimplificada("CESO", "56985897B", "C/ AMAPOLAS 256", 962354785, "10/02/2022", 0001, "Venta sólida", 100);
-        document.write(factura1.getInfo());
+        class FacturaCompleta extends FacturaSimplificada{
+            constructor(NombreEmpresa, CifEmpresa, DireccionEmpresa, TelefonoEmpresa, fecha, identificador, descripcion, impSinIva, dni, nombrecli,dircli,telcli,emailcli){
+                super(NombreEmpresa, CifEmpresa, DireccionEmpresa, TelefonoEmpresa, fecha, identificador, descripcion, impSinIva);
+                this.ClienteDni = dni;
+                this.Clientenombre = nombrecli;
+                this.DireccionCliente =dircli;
+                this.TelefonoCliente = telcli;
+                this.EmailCliente = emailcli;
+            }
 
-        factura2 = new Facturasimplificada("REPSOL", "56984587F", "C/ GAVIA 2", 951478852, "10/02/2022", 0002, "Venta pactada", 256);
-        document.write(factura2.getInfo());
+            getInfo (){
+                return super.getInfo() +"</br> CLIENTE </br> NOMBRE: " + this.Clientenombre + "</br>DNI: " + this.ClienteDni + "</br>DIRECCIÓN: " + this.DireccionCliente +"</br>TELEFONO: " + this.TelefonoCliente +"</br>EMAIL: " + this.EmailCliente ;
+            }
+        }
+
+
+
+        factura1 = new FacturaCompleta("CESO", "56985897B", "C/ AMAPOLAS 256", 962354785, "10/02/2022", 0001, "Venta sólida", 100, "53428876W", "Pedro", "Calle amatista,34", 923457654,"pedro@pedro.com");
+        document.write(factura1.getInfo());
     </script>
 </body>
 

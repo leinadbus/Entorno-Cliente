@@ -1,0 +1,11 @@
+JavaScript es un lenguaje de programación que NO soporta la herencia multiple, 
+cosa que ocurre en la gran mayoría de los lenguajes POO.
+
+La herencia multiple podemos crearla de manera ilusoria con una doble herencia de objetos 
+concatenados, es decir, podemos crear un objeto que hereda del padre y que al mismo tiempo 
+hereda de la clase primaria. 
+Por ejemplo:
+Mesa<-CategoriaMueble<-Producto
+
+En este caso la clase Mesa hereda las propiedades de la clase CategoriaMueble que al mismo
+tiempo hereda las propiedades de la clase padre Producto
