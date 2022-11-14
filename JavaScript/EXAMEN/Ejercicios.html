@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Dado {
+            constructor (colorDado,tipoDado){
+                this.numeroCaras=6;
+                this.colorDado=colorDado;
+                this.tipoDado=tipoDado;
+                this.valorCara1=1;
+                this.valorCara2=2;
+                this.valorCara3=3;
+                this.valorCara4=4;
+                this.valorCara5=5;
+                this.valorCara6=6;
+                this.valorActivo=0;
+            }
+
+            setValorCaras (numero){
+                this.valorCaras=numero;
+            }
+
+            getNumeroCaras (){
+                return this.numeroCaras;
+            }
+            
+            // valorCAras(){
+
+            //     var avalorCaras= [];
+            //     var valor;
+
+            //     for (i=0;i<this.numeroCaras;i++){
+
+            //         valor= Math.random(1,this.numeroCaras);
+
+            //         valorCaras.push(valor);
+            //     }
+
+            //     this.valorCaras=avalorCaras;
+            // }
+
+            // random (){
+
+            //     //let avalorCaras= new Array();
+            //     let valor=  Math.floor(Math.random() * this.numeroCaras)+1;
+            //     //valorCaras.push(valor);
+            //     this.valorCaras= valor;
+            //     //return document.write(valorCaras);
+                
+            // }
+
+
+            // valorActivo () {
+            //     let valor= Math.random(1,this.valorCaras.length);
+            //     return this.valorActivo=valor;
+            // }
+           lanzardado (){
+             let valor =  Math.floor(Math.random() * this.numeroCaras)+1;
+             return valor;
+ }
+            toString (){
+                return "Numero de caras: "+this.numeroCaras +" Color del dado: "+ this.colorDado +" Tipo de dado: "+ this.tipoDado  +" El valor activo es: "+ this.valorActivo;
+            }
+
+            mostrarInformacion (){
+                return "Numero de caras: "+this.numeroCaras +" Color del dado: "+ this.colorDado +" Tipo de dado: "+ this.tipoDado + " valor lanzamiento"+this.lanzardado();
+            }
+
+        }
+
+        
+        var dado1= new Dado ("rojo","numerico");
+        var dado2= new Dado ("verde","numerico");
+        document.write("<br> Dado rojo es: ",dado1.toString());
+        document.write("<br> Dado verde es: ",dado2.toString());
+
+
+var valo1;
+var valo2;
+var sumatorio=0;
+var arraydados=[];
+        for (i=0;i<15;i++){
+
+    valo1=dado1.lanzardado();
+
+    valo2=dado2.lanzardado();
+    arraydados.push(valo1);
+    arraydados.push(valo2);
+sumatorio= sumatorio + valo1 + valo2;
+        }
+document.write("<br>Todos los valores que han salido son ",arraydados," <br>");
+        document.write("La suma total de 15 lanzamientos es:", sumatorio);
+
+
+        document.write(" <br> Valores sin el primero ni ultimo: ")
+for(i=2;i<arraydados.length-2;i++){
+    document.write(arraydados[i],"|");
+}
+    document.write("<br> Valores por triple; ");
+for(i=0;i<arraydados.length;i++){
+    let triple= 3*arraydados[i];
+    document.write(triple,"|");
+}
+
+
+function ordenarAsc (objeto) {
+        //Esta función nos permite ordenar números de dos cifras
+            let a = objeto.sort(function(a, b) {return a - b; });
+            return a;
+        }
+
+
+        function ordenarDes (objeto) {
+        //Esta función nos permite ordenar números de dos cifras
+            let a = objeto.sort(function(a, b) {return b - a; });
+            return a;
+        }
+        document.write("<br>Conjunto de valores ordenado de menor a mayor: ");
+        document.write(ordenarDes(arraydados));
+        document.write("<br>Conjunto de valores ordenado de mayor a menor: ");
+        document.write(ordenarAsc(arraydados));
+
+        function media (objeto){
+        var suma=0;
+        var valor;
+      for (let i = 0; i < objeto.length; i++) {
+        valor=Number.parseFloat(objeto[i]);
+        suma = suma + valor;
+      } 
+      suma = suma/objeto.length;
+      return suma;
+     }
+
+
+
+     function mediana (objeto) {
+        let longitud=objeto.length;
+        let mediana=(longitud%2);
+        let numero= (longitud/2);
+
+        if (mediana==0){
+            let numero1=numero-1;
+            let array=[];
+            array.push(objeto[numero1]);
+            array.push(objeto[numero]);
+            return array;
+        }else {
+            numero -=0.5;
+            return objeto[numero];
+        }
+
+     }
+
+     document.write("<br>La media de los valores es: ", media(arraydados));
+     document.write("<br>La mediana de los valores es: ", mediana(arraydados));
+
+function moda (objeto){
+    let uno=0;
+    let dos=0;
+    let tres=0;
+    let cuatro=0;
+    let cinco=0;
+    let seis=0;
+
+    for (i=0;i<objeto.length;i++){
+        if(objeto[i]==1){
+            uno++;
+        }else if (objeto[i]==2){
+        dos++;
+        }else if(objeto[i]==3){
+            tres++;
+        }else if (objeto[i]==4){
+            cuatro++
+        }else if(objeto[i]==5){
+            cinco++;
+        }else 
+        seis++;
+    }
+    document.write("<br>Uno se repite: ",uno, " veces / Dos se repite: ",dos, " veces / Tres se repite: ", tres, " veces / Cuatro se repite: ",cuatro, " veces / Cinco se repite: ", cinco, " veces / Seis se repite: ",seis);
+}
+
+moda(arraydados)
+
+function porcentaje (objeto){
+    let uno=0;
+    let dos=0;
+    let tres=0;
+    let cuatro=0;
+    let cinco=0;
+    let seis=0;
+    let siete=0;
+    let ocho=0;
+    let nueve=0;
+    let diez=0;
+    let once =0;
+    let doce =0;
+
+    let valo1;
+    for (i=0;i<objeto.length;i++){
+        valo1=objeto[i]+objeto[i+1];
+
+        if (valo1==1){
+uno++;
+        }else if(valo1==2){
+dos++;
+        }else if (valo1==3){
+tres++
+        }else if (valo1==4){
+            cuatro ++;
+        }else if (valo1==5){
+            cinco++;
+        }else if (valo1==6){
+            seis++;
+        }else if (valo1==7){
+            siete++;
+        }else if (valo1==8){
+            ocho++;
+        }else if (valo1==9){
+            nueve++;
+        }else if (valo1==10){
+            diez++;
+        }else if (valo1==11){
+            once++;
+        }else {
+            doce++;
+        }
+        i++;
+
+  
+    }
+    uno= (uno/30)*100;
+        dos = (dos/30)*1000;
+
+
+        document.write("Uno tiene un porcentaje de: ",uno,"% / Dos tiene un porcentaje de: ",dos,"%", "tres: ",tres,"% Cuatro:",cuatro,"% Cinco:",cinco,"% Seis:", seis, "% Siete:", siete,"% Ocho: ",ocho,"% Nueve: ",nueve, "% Diez: ",diez, "% Once: ",once, "% Doce: ",doce );
+
+    }
+    porcentaje(arraydados);
+
+
+    </script>
+</body>
+</html>
