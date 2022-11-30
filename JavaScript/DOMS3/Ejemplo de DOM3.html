@@ -65,10 +65,62 @@
   <img src="https://concepto.de/wp-content/uploads/2018/10/URL3-e1538665010929.jpg">
   </div>
   <script>
-    function cambiarTextos (){
+    let e2 = document.querySelectorAll('p');
 
-      
-    }
+function cambiarTextos(){
+for (let i = 0; i < e2.length-1; i++) {
+e2[i].textContent = 'Párrafo 1 cambiado';
+}
+}
+
+function cambiarClases(){
+for (let i = 0; i < e2.length; i++) {
+e2[i].setAttribute ('class', 'miClase');
+}
+}
+
+function quitarClases(){
+for (let i = 0; i < e2.length; i++) {
+e2[i].removeAttribute('class');
+}
+}
+
+function crearParrafos(){
+let valor = document.getElementById("texto").value;
+console.log(valor);
+let añadir = document.querySelector('p:last-child');
+let nuevoParrafo = document.createElement('p');
+let valorParrafo1 = document.createTextNode(valor);
+nuevoParrafo.appendChild(valorParrafo1);
+añadir.appendChild(nuevoParrafo);
+}
+
+function BorrarUltimo (){
+
+}
+
+function BorrarPrimero () {
+
+}
+
+function SustituirTexto() {
+
+}
+
+function CrearImagen () {
+
+}
+
+
 document.getElementById("cambiarTextos").addEventListener("click",cambiarTextos);
+document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+document.getElementById("QuitarClases").addEventListener("click",quitarClases);
+document.getElementById("CrearParrafo").addEventListener("click",crearParrafos);
+document.getElementById("BorrarUltimo").addEventListener("click",BorrarUltimo);
+document.getElementById("BorrarPrimero").addEventListener("click",BorrarPrimero);
+document.getElementById("SustituirTexto").addEventListener("click",SustituirTexto);
+document.getElementById("CrearImagen").addEventListener("click",CrearImagen);
+
+
   </script>
 </body></html>
