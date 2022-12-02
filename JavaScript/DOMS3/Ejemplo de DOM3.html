@@ -22,13 +22,28 @@
   <h2>Algunos párrafos</h2>
   <div id="lipsum">
     <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat ex in eleifend finibus. Morbi vulputate iaculis tortor, nec luctus neque consectetur sit amet. Aliquam erat volutpat. Suspendisse auctor ante id est hendrerit aliquam. Sed libero libero, bibendum eget rhoncus ut, consequat eget arcu. Maecenas ac fermentum elit. Integer tempor rutrum erat at dapibus. Duis ornare ornare efficitur. Pellentesque eu nibh id arcu volutpat mollis vitae eget dolor. Donec velit nibh, vestibulum et ante sed, interdum condimentum arcu. Vivamus in purus vitae nunc iaculis venenatis et a neque. Etiam vulputate felis non est aliquam, id ultrices ipsum consequat.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat ex in eleifend finibus. 
+    Morbi vulputate iaculis tortor, nec luctus neque consectetur sit amet. Aliquam erat volutpat. 
+    Suspendisse auctor ante id est hendrerit aliquam. Sed libero libero, bibendum eget rhoncus ut, 
+    consequat eget arcu. Maecenas ac fermentum elit. Integer tempor rutrum erat at dapibus. 
+    Duis ornare ornare efficitur. Pellentesque eu nibh id arcu volutpat mollis vitae eget dolor. 
+    Donec velit nibh, vestibulum et ante sed, interdum condimentum arcu. Vivamus in purus vitae 
+    nunc iaculis venenatis et a neque. Etiam vulputate felis non est aliquam, id ultrices ipsum consequat.
     </p>
     <p>
-    Vestibulum facilisis est in fringilla volutpat. Sed sollicitudin odio ac tristique placerat. Sed eleifend feugiat consequat. Vivamus consequat tristique sem non suscipit. Praesent pulvinar pretium blandit. Sed at diam condimentum, faucibus tellus ut, eleifend leo. Nullam sed rhoncus lectus. Maecenas eget ex eleifend, pulvinar lectus ut, bibendum quam. Donec vestibulum interdum mattis.
+    Vestibulum facilisis est in fringilla volutpat. Sed sollicitudin odio ac tristique placerat. 
+    Sed eleifend feugiat consequat. Vivamus consequat tristique sem non suscipit. Praesent pulvinar 
+    pretium blandit. Sed at diam condimentum, faucibus tellus ut, eleifend leo. Nullam sed rhoncus 
+    lectus. Maecenas eget ex eleifend, pulvinar lectus ut, bibendum quam. Donec vestibulum interdum mattis.
     </p>
     <p>
-    Duis vulputate condimentum massa sit amet pulvinar. Sed sollicitudin mauris in laoreet condimentum. Pellentesque congue mauris libero, in scelerisque leo sodales sed. Phasellus tristique sodales consectetur. Morbi porttitor mattis nibh. Nulla quis eros vitae dolor porttitor placerat ac eu nisl. Proin mattis ultrices tellus, eget pharetra nibh pulvinar quis. In vitae ligula mi. Sed commodo commodo purus, nec dictum neque semper in. Donec molestie libero leo, et hendrerit mauris efficitur eget. Nulla molestie bibendum blandit. Curabitur sed porttitor mi. Sed aliquam felis et lacus pretium consectetur.
+    Duis vulputate condimentum massa sit amet pulvinar. Sed sollicitudin mauris in laoreet condimentum. 
+    Pellentesque congue mauris libero, in scelerisque leo sodales sed. Phasellus tristique sodales 
+    consectetur. Morbi porttitor mattis nibh. Nulla quis eros vitae dolor porttitor placerat ac eu nisl. 
+    Proin mattis ultrices tellus, eget pharetra nibh pulvinar quis. In vitae ligula mi. Sed commodo 
+    commodo purus, nec dictum neque semper in. Donec molestie libero leo, et hendrerit mauris efficitur 
+    eget. Nulla molestie bibendum blandit. Curabitur sed porttitor mi. Sed aliquam felis et lacus pretium 
+    consectetur.
     </p></div>
     <h2>Una lista</h2>
     <ul>
@@ -65,23 +80,24 @@
   <img src="https://concepto.de/wp-content/uploads/2018/10/URL3-e1538665010929.jpg">
   </div>
   <script>
-    let e2 = document.querySelectorAll('p');
 
 function cambiarTextos(){
-for (let i = 0; i < e2.length-1; i++) {
-e2[i].textContent = 'Párrafo 1 cambiado';
+let texto = document.querySelectorAll('p');
+for (let i = 0; i < texto.length-1; i++) {
+texto[i].textContent = 'Párrafo 1 cambiado';
 }
 }
 
 function cambiarClases(){
-for (let i = 0; i < e2.length; i++) {
-e2[i].setAttribute ('class', 'miClase');
+for (let i = 0; i < texto.length; i++) {
+texto[i].setAttribute ('class', 'miClase');
 }
 }
 
 function quitarClases(){
-for (let i = 0; i < e2.length; i++) {
-e2[i].removeAttribute('class');
+let texto = document.querySelectorAll('p');
+for (let i = 0; i < texto.length; i++) {
+texto[i].removeAttribute('class');
 }
 }
 
@@ -89,26 +105,35 @@ function crearParrafos(){
 let valor = document.getElementById("texto").value;
 console.log(valor);
 let añadir = document.querySelector('p:last-child');
-let nuevoParrafo = document.createElement('p');
-let valorParrafo1 = document.createTextNode(valor);
-nuevoParrafo.appendChild(valorParrafo1);
-añadir.appendChild(nuevoParrafo);
+let Parrafo = document.createElement('p');
+let parrafoValue = document.createTextNode(valor);
+Parrafo.appendChild(parrafoValue);
+añadir.appendChild(Parrafo);
 }
 
 function BorrarUltimo (){
-
+  let parrafo=document.querySelectorAll('p').length-1
+  ocument.querySelectorAll('p').remove(parrafo);
 }
 
-function BorrarPrimero () {
+function BorrarPrimero (){
+     document.querySelector('p').remove();
+ }
+function sustituirTexto(){
+  let texto = document.querySelectorAll('p');
+     let textoAlternativo = ("alt" ,prompt ("Introduce el texto alternativo"));
+     texto[0].textContent =  textoAlternativo;
 
 }
-
 function SustituirTexto() {
-
+  let texto = document.querySelectorAll('p');
+let parrafo = prompt("Introduce un texto");
+texto[0].textContent=parrafo;
 }
 
 function CrearImagen () {
-
+let imagen = document.createElement('img');
+imagen.src='js.png';
 }
 
 
