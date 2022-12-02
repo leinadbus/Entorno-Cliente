@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // //Creamos funcion directamente
+        // const temporizador=setTimeout (()=> alert("hola")  , 1000);
+
+        //  //pasando funcion como parámetro
+        //  function codigo () {
+        //  prompt("hola")
+        // }
+
+        // setTimeout (codigo, 10000);
+
+
+        // //creamos función que repite cada tiempo
+        // let i=1;
+        // const repeticion = setInterval(()=>{
+        //     alert ("Intervalos de 3 segundos" + i++);
+        //     if (i===5){
+        //         clearInterval(repeticion);
+        //         alert ("fin");
+        //     }
+        // },3000);
+
+        //La pasamos como parámetro
+        function codigo2 () {
+         alert("hola");
+         let i=1;
+         i++;
+         if (i===5){
+                clearInterval(repeticion);
+                alert ("fin");
+            }
+        }
+        setInterval(codigo2,3000);
+
+        
+    </script> 
+</body>
+</html>
