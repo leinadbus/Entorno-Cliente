@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <button id="open">Abrir</button>
+    <button id="escrib">Escribir</button>
+    <button id="move">Mover</button>
+
+    <P>-    La seguridad de los navegadores no permite escribir en una ventana creada por seguridad.</P>
+    <P>-    El primer botón abre una ventana, si está abierta el segundo botón no funciona.</P>
+    <P>-    Si se cierra la primera (o no se abre) el segundo botón crea la ventana con el texto solicitado.</P>
+</body>
+<script>
+          document.getElementById('open').addEventListener("click", openWindow);
+          document.getElementById('escrib').addEventListener("click", escribe);
+          document.getElementById('escrib').addEventListener("click", mover);
+
+          document.getElementById('open').addEventListener('click', (event) => {});
+
+var win;
+
+    function openWindow()
+    {
+        win = window.open('./ejemplo.html', 'anotherWindow', 'width=500', 'height=200', 'screenX=100', 'screenY=200');
+        //win.moveTo(100,200);
+        //repito el resizeTo para saber las dos maneras de las que lo puedo hacer
+        //win.resizeTo(500,200) ;
+        win.focus();
+        
+    }
+
+    function escribe ()
+    {
+        win = window.open('./ejemplo.html', 'anotherWindow', 'width=500, height=200');
+        //win.moveTo(100,200);
+        //repito el resizeTo para saber las dos maneras de las que lo puedo hacer
+        //win.resizeTo(500,200) ;
+        win.focus();
+        win.document.write('<h1>Hola</h1>');
+    }
+
+    function mover ()
+    {
+        win.moveTo(300,100);
+        win.focus();
+    }
+</script>
+</html>

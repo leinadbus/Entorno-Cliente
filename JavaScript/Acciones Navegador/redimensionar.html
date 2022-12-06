@@ -9,14 +9,25 @@
 <body>
 
       <button id="open">Abrir</button>
-    <script>
-      
-      $('#open').click(function(){
-        
-        var win = window.open('https://aulavirtual3.educa.madrid.org/ies.ciudadescolar.madrid/my/courses.php', 'anotherWindow', 'width=300, height=150');
-        win.focus;
-        win.resizeTo(50,50);
-      })
-  </script>
 </body>
+    <script>
+      var oldOpen = window.open;
+
+      function newOpen(arguments){
+        console.warn("PROXYYYY")
+          return oldOpen(...arguments);
+      }
+
+
+
+      window.open = newOpen;
+      function openWindow(evt){
+        console.log("Event!!", evt);
+        var win = window.open('https://aulavirtual3.educa.madrid.org/ies.ciudadescolar.madrid/my/courses.php', 'anotherWindow', 'width=300, height=150');
+        win.focus();
+        win.resizeTo(50,50);
+      }
+      //document.getElementById('open').onclick =openWindow;
+      document.getElementById('open').addEventListener("click", openWindow)
+  </script>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <button id="open">Abrir</button>
+    <button id="escrib">Escribir</button>
+    <button id="move">Mover</button>
+    <button id="clos">Cerrar</button>
+
+    <P>-    Por seguridad los navegadores no permite escribir en una ventana ya creada.</P>
+    <P>-    El primer botón abre una ventana, si está abierta el segundo botón no funciona.</P>
+    <P>-    Si se cierra la primera (o no se abre) el segundo botón crea la ventana con el texto solicitado.</P>
+    <P>-    Si creo una función para mover la pestaña, esta se mueve al ser creada y no cuando pulsamos el botón. <br/> 
+    Esto puede deberse a que la variable se ejecuta antes de ser llamada por que JavaScript reordena el código.</P>
+</body>
+<script>
+     
+     var win;
+
+        document.getElementById('open').addEventListener('click', (event) => 
+    {
+            win = window.open('./ejemplo.html', 'anotherWindow', 'width=500', 'height=200', 'screenX=100', 'screenY=200');
+            win.focus();
+    });
+
+        document.getElementById('escrib').addEventListener("click",(event) => 
+    {
+            win = window.open('./ejemplo.html', 'anotherWindow', 'width=500, height=200','screenX=100', 'screenY=200');
+            win.focus();
+            win.document.write('<h1>Hola</h1>');
+    });
+
+        document.getElementById('escrib').addEventListener("click",(event) => 
+    { 
+    
+            win.window.moveTo(300,100);
+            win.focus();
+        
+    });
+
+
+    document.getElementById('clos').addEventListener("click",(event) => 
+    { 
+            win.close();
+            win.focus();
+    });
+
+
+
+   
+</script>
+</html>
