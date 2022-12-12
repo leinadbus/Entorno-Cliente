@@ -1,0 +1,8 @@
+document.getElementById('button1').addEventListener('click',(event)=>{window.alert('clicado boton 1')});
+undefined
+document.getElementById('button1').addEventListener('mouseenter',(event)=>{document.write(<p>'entrando en boton 1'</p>)});
+VM673:1 Uncaught SyntaxError: Unexpected token '<'
+document.getElementById('button1').addEventListener('mouseenter',(event)=>{document.write('<p>entrando en boton 1</p>')});
+var elemento=document.getElementById('button1');
+document.getElementById('button1').addEventListener('mouseenter',(event)=>{elemento.value='entrando en boton 1'});
+document.getElementById('button1').addEventListener('mouseleave',(event)=>{elemento.value='Button 1'}); o mouseout
