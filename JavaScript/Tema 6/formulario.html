@@ -1,0 +1,38 @@
+<img src="formulario.jpg">
+<h1>Formulario</h1>
+<p><b>Completa el siguiente formulario</b></p>
+<form><!-- action="ejemplo.php" method="get">-->
+  <p>Nombre: <input type="text" name="nombre" size="40"></p>
+  <p>Apellidos:
+  <input type="text" name="apellidos" size="40" placeholder="Escriba sus dos apellidos">
+  </p>
+  <p>Año de nacimiento: <input type="number" name="nacido" min="1900"></p>
+  <p>Nacionalidad: 
+  <SELECT NAME="lista1">
+  <OPTION>
+  <OPTION>Española
+  <OPTION>Alemana
+  <OPTION>Francesa
+  </SELECT>
+  </p>
+  <p>Sexo:
+    <input type="radio" name="hm" value="h"> Hombre
+    <input type="radio" name="hm" value="m"> Mujer
+  </p>
+  <p>Deportes favoritos:
+  <input type="checkbox" name="casilla1">futbol
+  <input type="checkbox" name="casilla2">baloncesto
+  <input type="checkbox" name="casilla3">atletismo
+  </p>
+  <p>Comentarios:
+  <textarea id="texto"></textarea>
+  </p>
+  <p>
+    <!--<input type="submit" id="button1" value="Enviar">
+     <input type="reset" id="button2" value="Borrar">
+    -->
+    <input type="button" id="button1" value="Enviar">
+    <input type="button" id="button2" value="Borrar">
+    <input type="button" id="button3" value="Click me">
+  </p>
+</form>

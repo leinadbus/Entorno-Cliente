@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)https://cipfpbatoi.github.io/materials/daw/dwc/01-js/ejercicios/ejemplos/ejemploDOM.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de DOM</title>
+</head>
+
+    <label for="input1">Dato 1
+      <input id="input1" type="text" size="20"><br>
+    </label>
+    <label for="input2">Dato 2
+      <input id="input2" type="text" size="20"><br>
+    </label>
+    <label for="input3">Dato 3
+      <input id="input3" type="text" size="20"><br>
+    </label>
+    <label>Escoge el sexo:<br>
+      <input type="radio" name="sexo" value="H">Hombre<br>
+      <input type="radio" name="sexo" value="M">Mujer
+    </label>
+
+<p>
+  <input type="button" id="button1" value="Button 1">
+  <input type="button" id="button2" value="Button 2">
+  <button onclick="CONTADOR(event)">Click count:</button>
+  <input id="resultado" type="text"> 
+</p>
+  </form>
+  <script >
+//CONTADOR DE VECES QUE CLICAMOS EN UN BOTÓN:
+function CONTADOR(event) {
+  var x = event.detail;
+  document.getElementById("resultado").value = x;
+
+}
+
+
+  </script>
+</body></html>

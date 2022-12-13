@@ -42,4 +42,5 @@ document.getElementById(id="pag").addEventListener('click', stopDefAction);
 
 //-------------------------------------------------------------------->
 
-//
+//Cuando cliquemos una dos o tres veces mostremos una alerta de cuantas veces hemos pulsado sobre un botón
+
