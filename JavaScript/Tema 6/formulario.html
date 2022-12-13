@@ -6,11 +6,11 @@
   <p>Apellidos:
   <input type="text" name="apellidos" size="40" placeholder="Escriba sus dos apellidos">
   </p>
-  <p>Año de nacimiento: <input type="number" name="nacido" min="1900"></p>
+  <p>Aï¿½o de nacimiento: <input type="number" name="nacido" min="1900"></p>
   <p>Nacionalidad: 
   <SELECT NAME="lista1">
   <OPTION>
-  <OPTION>Española
+  <OPTION>Espaï¿½ola
   <OPTION>Alemana
   <OPTION>Francesa
   </SELECT>
@@ -35,4 +35,42 @@
     <input type="button" id="button2" value="Borrar">
     <input type="button" id="button3" value="Click me">
   </p>
+
+  <script>
+  var imagen = document.querySelector('img');
+  var imagen1=new Image( src="formulario.jpg",'width=60px', 'height=60px');
+  imagen1.width=imagen.width;
+  imagen1.height=imagen.height;
+
+  document.querySelector('img').addEventListener("mouseenter", (event) => 
+    {
+      imagen.style.width = '60px';
+      imagen.style.height= '60px';
+     
+    });
+
+    document.querySelector('img').addEventListener("mouseleave", (event) => 
+    {
+      imagen.style.width='39';
+      imagen.style.height='39';
+     
+    });
+
+    document.querySelector('p').addEventListener('click', (event)=>
+    {
+      var x= event.detail;
+      if (x==2){
+        document.querySelector('h1').style.color='blue';
+      }
+    });
+
+    document.querySelector('p > input').addEventListener('blur', (event)=>{
+      document.querySelector('p > input').value=document.querySelector('p > input').value.toUpperCase();
+  
+    })
+
+
+
+
+  </script>
 </form>
