@@ -69,8 +69,70 @@
   
     })
 
+    //Ejercicio 4
+    document.querySelector('p > input').addEventListener('change', (event)=> {
+      document.querySelector('p > input').parentElement.style.color='red';
+    })
+
+    document.querySelector('p:nth-child(2) > input').addEventListener('change', (event)=>{
+      document.querySelector('p:nth-child(2) > input').parentElement.style.color='red';
+    })
+
+    document.querySelector('p > textarea').addEventListener('change', (event)=>{
+      document.querySelector('p > textarea').parentElement.style.color='red';
+    })
+
+    //Ejercicio 5
+    let ape = document.querySelector('p:nth-child(2) > input');
+let espe = '[!"·$%&/()=?¿]';
+ape.addEventListener('change',(event)=>{
+    
+    console.log(ape.value.includes(espe));
+    if((ape.value).match('[!"·$%&/()=?¿Ññ]') ){
+    ape.value = ' ';
+}});
+
+
+    //Ejercicio 6
+    
 
 
 
+    document.querySelector('[min]').addEventListener('change', (event)=>{
+      var esBisiesto = (year) => {
+  return (year % 400 === 0) ? true : 
+  			(year % 100 === 0) ? false : 
+  				year % 4 === 0;}
+
+          var miDiv=document.querySelector('p:nth-child(2)');
+          var nuevoParrafo=document.createElement('p');
+          var textoBisiesto=document.createTextNode('Es año bisiesto');
+          var textoNoBisiesto=document.createTextNode('NO es año bisiesto');
+         
+
+          var valor =document.querySelector('[min]').value;
+          if(esBisiesto(document.querySelector('[min]').value)){
+            nuevoParrafo.appendChild(textoBisiesto);
+            miDiv.appendChild(nuevoParrafo);
+        console.log('esBisiesto');
+      }else{
+        nuevoParrafo.appendChild(textoNoBisiesto);
+        miDiv.appendChild(nuevoParrafo);
+        console.log('NO');
+      }
+    });
+   
+
+
+
+//     var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+// function testInfo(phoneInput) {
+//   var OK = re.exec(phoneInput.value);
+//   if (!OK) {
+//     console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+//   } else {
+//     console.log('Gracias, tu número de teléfono es ' + OK[0]);}
+// }
+    
   </script>
 </form>
