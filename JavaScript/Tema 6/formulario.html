@@ -38,6 +38,8 @@
   </p>
 
   <script>
+  // Ejercicio 1. Cada vez que el ratón este sobre la imagen auméntala a 
+  //60px (debe volver a su tamaño original cuando el ratón no esté sobre la imagen).
   var imagen = document.querySelector('img');
   var imagen1=new Image( src="formulario.jpg",'width=60px', 'height=60px');
   imagen1.width=imagen.width;
@@ -57,6 +59,9 @@
      
     });
 
+    //Ejercicio 2. Cuando se haga doble click en el primer párrafo (“Completa el siguiente formulario”), 
+    //cambia el color del texto de la cabecera (h1) a azul.
+
     document.querySelector('p').addEventListener('click', (event)=>
     {
       var x= event.detail;
@@ -65,12 +70,16 @@
       }
     });
 
+
+    //Ejercicio 3 3. Después de escribir el Nombre y perder el foco en este campo transforma todos los 
+    //caracteres del nombre a mayúsculas.
     document.querySelector('p > input').addEventListener('blur', (event)=>{
       document.querySelector('p > input').value=document.querySelector('p > input').value.toUpperCase();
   
     })
 
-    //Ejercicio 4
+    //Ejercicio 4. Cuando se complete cada campo de texto, debe poner la etiqueta que le precede de 
+    //color rojo y en negrita. Ejemplo:
     document.querySelector('p > input').addEventListener('change', (event)=> {
       document.querySelector('p > input').parentElement.style.color='red';
     })
@@ -83,7 +92,8 @@
       document.querySelector('p > textarea').parentElement.style.color='red';
     })
 
-    //Ejercicio 5
+    //Ejercicio 5. Después de introducir los apellidos comprueba que no haya introducido algún 
+    //carácter especial. En caso de haber introducido algún carácter borra el campo Apellidos.
     let ape = document.querySelector('p:nth-child(2) > input');
 let espe = '[!"·$%&/()=?¿]';
 ape.addEventListener('change',(event)=>{
@@ -94,7 +104,10 @@ ape.addEventListener('change',(event)=>{
 }});
 
 
-    //Ejercicio 6
+    //Ejercicio 6. Después de introducir el año de nacimiento y cada vez que se cambie este dato, 
+    //escribe (o reescribe en caso de modificarse el año) un texto (añade un DIV o un P al HTML)
+    //que indique si nació en año bisiesto o no y los años que tiene. Sitúa este texto a continuación 
+    //del Año de nacimiento.
     
 
 
@@ -123,7 +136,8 @@ ape.addEventListener('change',(event)=>{
       }
     });
 
-    //Ejercicio 7
+    //Ejercicio 7. Cuando selecciones una nacionalidad muestra una alerta indicando 
+    //la nacionalidad seleccionada.
 
     let seleccion=document.querySelector('select');
 
@@ -134,9 +148,56 @@ ape.addEventListener('change',(event)=>{
       
 
 
-    //Ejercicio 8
+    //Ejercicio 8. Al cambiar el valor de algún checkbox o la selección del sexo 
+    // escribe (o reescribe en caso de volver a cambiarlo) un texto (añade un DIV o 
+    // un P al HTML) que indique cuantos cambios se han realizado sobre estos elementos. 
+    // Sitúa este texto antes de Comentarios.
+    let cambios=0;
+    // let nuevoParrafo1= document.createElement("p");
+    // let textoCambios = document.createTextNode("Cambios: ");
+    // nuevoParrafo1.appendChild(textoCambios);
+    // let formularios1 = document.getElementById('button2');
+    // formularios1.insertBefore(nuevoParrafo1, formularios1.querySelector("label"));
+    var miP=document.querySelector('p:nth-child(6)');
+    var nuevoParrafo2=document.createElement('p');
+    var formularios2=document.createTextNode('Cambios: ');
+    nuevoParrafo2.setAttribute("id", "cambios");
+    nuevoParrafo2.appendChild(formularios2);
+    miP.appendChild(nuevoParrafo2);
+         
 
-    //Ejercicio 9
+    document.querySelector('input[name=hm]:nth-child(2)').addEventListener('blur', (event)=>{
+      cambios++;
+      document.getElementById('cambios').textContent= 'Cambios: ' + cambios; 
+
+    })
+
+    document.querySelector('input[name=hm').addEventListener('blur', (event)=>{
+      cambios++;
+      document.getElementById('cambios').textContent= 'Cambios: ' + cambios; 
+
+    })
+
+    document.querySelector('input[type=checkbox]').addEventListener('change', (event)=>{
+      cambios++;
+      document.getElementById('cambios').textContent= 'Cambios: ' + cambios; 
+    })
+
+    document.querySelector('input[type=checkbox]:nth-child(2)').addEventListener('change', (event)=>{
+      cambios++;
+      document.getElementById('cambios').textContent= 'Cambios: ' + cambios; 
+    })
+
+    document.querySelector('input[type=checkbox]:nth-child(3)').addEventListener('change', (event)=>{
+      cambios++;
+      document.getElementById('cambios').textContent= 'Cambios: ' + cambios; 
+    })
+
+
+
+    //Ejercicio 9. Cuando se introduce en el campo Comentarios la letra “w”, 
+    // se muestra una alerta indicando que ha introducido dicha letra. No hará 
+    // nada si se introducen otros caracteres.
 
   let ape2 = document.querySelector('p > textarea');
   let espe2 = 'w';
@@ -148,7 +209,8 @@ ape.addEventListener('change',(event)=>{
     alert('Has introducido una W');
 }});
 
-//Ejercicio 10
+//Ejercicio 10. Cuando selecciona un texto en el apartado de Comentarios 
+//muestra una alerta con el texto seleccionado.
 
 document.querySelector('p > textarea').addEventListener('change', (event)=>{
   if (window.getSelection){
@@ -161,7 +223,10 @@ if (document.getSelection)
        return document.getSelection();
 }
 
-//Ejercicio 11
+//Ejercicio 11. Cuando hagas click en el botón "Borrar", muestra un 
+// mensaje advirtiendo al usuario de que va a borrar todo. Pregunta si 
+// está seguro, en caso afirmativo resetea o limpia todos los campos, 
+// en caso contrario no limpies el contenido de los campos.
 document.getElementById('button2').addEventListener('click', (event)=>{
   let valor=confirm('Se borrara la pagina');
    if(valor){
@@ -169,7 +234,10 @@ document.getElementById('button2').addEventListener('click', (event)=>{
    }
 })
 
-//ejercicio 12
+//ejercicio 12. Cuando hagas click en el botón "Enviar", comprueba si 
+// ha completado todos los campos de texto. En el caso de que falten campos 
+// de texto por completar muestra una alerta que indique que no se puede 
+// enviar. En el caso de estar completos deshabilita el botón “Borrar”.
 document.querySelector('#button1').addEventListener('click', function camposCompletados(){
     let nombre = document.querySelector('p > input').value.length;
     let apellido = document.querySelector('p:nth-child(2) > input').value.length;
@@ -182,7 +250,6 @@ document.querySelector('#button1').addEventListener('click', function camposComp
     let deporte2 = document.querySelector('input[type=checkbox]:nth-child(2)').checked;
     let deporte3 = document.querySelector('input[type=checkbox]:nth-child(3)').checked;
     let comen = document.querySelector('p > textarea').value.length;
-
     let genero;
     let accion;
     
