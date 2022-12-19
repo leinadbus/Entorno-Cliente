@@ -34,6 +34,7 @@
     <input type="button" id="button1" value="Enviar">
     <input type="button" id="button2" value="Borrar">
     <input type="button" id="button3" value="Click me">
+    <input id="resultado" type="text"> 
   </p>
 
   <script>
@@ -121,18 +122,67 @@ ape.addEventListener('change',(event)=>{
         console.log('NO');
       }
     });
-   
 
+    //Ejercicio 7
 
+    // document.querySelector('select').addEventListener('click', (event)=>{
+    //   let pepe= document.getElementsByTagName('select').value;
+    //   pepe.onblur=doEvent;
+    //   function doEvent(){
+    //     alert(pepe);
+    //   }
+    document.addEventListener('onchange',function() {
+    ('select').change(function() {
+        alert(this.value);
+    });
+});
+      
+    // })
 
-//     var re = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-// function testInfo(phoneInput) {
-//   var OK = re.exec(phoneInput.value);
-//   if (!OK) {
-//     console.error(phoneInput.value + ' isn\'t a phone number with area code!');
-//   } else {
-//     console.log('Gracias, tu número de teléfono es ' + OK[0]);}
-// }
+    //Ejercicio 8
+
+    //Ejercicio 9
+
+   let ape2 = document.querySelector('p > textarea');
+let espe2 = 'w';
+ape2.addEventListener('input',(event)=>{
     
+    console.log(ape2.value.includes(espe2));
+    if((ape2.value).match('w') ){
+    alert('Has introducido una W');
+}});
+
+//Ejercicio 10
+
+document.querySelector('p > textarea').addEventListener('change', (event)=>{
+  if (window.getSelection){
+       alert(selection());
+    }
+  
+})
+function selection(){
+if (document.getSelection)
+       return document.getSelection();
+}
+
+//Ejercicio 11
+document.getElementById('button2').addEventListener('click', (event)=>{
+  let valor=confirm('Se borrara la pagina');
+   if(valor){
+    location. reload();
+   }
+})
+
+//Ejercicio 13
+let input= document.getElementById("button3");
+input.setAttribute("onclick", "CONTADOR(event)");
+function CONTADOR(event) {
+  var x = event.detail;
+  document.getElementById("resultado").value = x;
+
+}
+
+
+
   </script>
 </form>
