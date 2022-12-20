@@ -34,10 +34,17 @@
     <input type="button" id="button1" value="Enviar">
     <input type="button" id="button2" value="Borrar">
     <input type="button" id="button3" value="Click me">
+    <input type="button" id="button4" value="Tema Oscuro">
   
   </p>
 
   <script>
+//Tema oscuro Tema Claro
+document.getElementById('button4').addEventListener('click', ()=>{
+document.querySelector('body').style.color='black';
+
+})
+
   // Ejercicio 1. Cada vez que el ratón este sobre la imagen auméntala a 
   //60px (debe volver a su tamaño original cuando el ratón no esté sobre la imagen).
   var imagen = document.querySelector('img');
@@ -95,13 +102,13 @@
     //Ejercicio 5. Después de introducir los apellidos comprueba que no haya introducido algún 
     //carácter especial. En caso de haber introducido algún carácter borra el campo Apellidos.
     let ape = document.querySelector('p:nth-child(2) > input');
-let espe = '[!"·$%&/()=?¿]';
-ape.addEventListener('change',(event)=>{
+    let espe = '[!"·$%&/()=?¿]';
+    ape.addEventListener('change',(event)=>{
     
     console.log(ape.value.includes(espe));
     if((ape.value).match('[!"·$%&/()=?¿Ññ]') ){
     ape.value = ' ';
-}});
+    }});
 
 
     //Ejercicio 6. Después de introducir el año de nacimiento y cada vez que se cambie este dato, 
@@ -212,7 +219,7 @@ ape.addEventListener('change',(event)=>{
 //Ejercicio 10. Cuando selecciona un texto en el apartado de Comentarios 
 //muestra una alerta con el texto seleccionado.
 
-document.querySelector('p > textarea').addEventListener('change', (event)=>{
+document.querySelector('p > textarea').addEventListener('select', (event)=>{
   if (window.getSelection){
        alert(selection());
     }
@@ -311,7 +318,7 @@ function CONTADOR(event) {
 document.addEventListener('click', (event) => { 
   var x= event.detail;
       if (x==2){
-	alert(event.target.innerHTML);
+	alert(event.target.innerHTML + event.target.nodeName);
       }
 }); 
 

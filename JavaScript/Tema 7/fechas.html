@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let fecNac1=new Date('1994-02-23');
+let fecNac2=new Date(1994,01,23);
+
+let dia= fecNac2.getDay();
+
+function diaSemana (dia){
+switch (dia) {
+    case 1:
+    document.write('Lunes');
+        break;
+    case 2:
+    document.write('Martes');
+        break;
+    case 3:
+    document.write('Miércoles');
+        break;
+    case 4:
+    document.write('Jueves');
+        break;
+    case 5:
+    document.write('Viernes');
+        break;
+    case 6:
+    document.write('Sábado');
+        break;
+    case 7:
+    document.write('Domingo');
+        break;
+
+    }
+}
+document.write('Has nacidio el ');
+diaSemana(dia);
+
+
+fecNac1.setFullYear(2022);
+let dia2= fecNac1.getDay();
+document.write('</br>Fecha de año cambiada es: ',fecNac1.getFullYear(),' con el día: ');
+diaSemana(dia2);
+
+
+var nacimiento = new Date(1936, 11, 29)
+var hoy = new Date()
+
+var tiempoPasado= hoy - fecNac2
+var segs = 1000;
+var mins = segs * 60;
+var hours = mins * 60;
+var days = hours * 24;
+var months = days * 30.416666666666668;
+var years = months * 12;
+
+//calculo 
+var anos = Math.floor(tiempoPasado / years);
+
+tiempoPasado = tiempoPasado - (anos * years);
+var meses = Math.floor(tiempoPasado / months)
+
+tiempoPasado = tiempoPasado - (meses * months);
+var dias = Math.floor(tiempoPasado / days)
+
+tiempoPasado = tiempoPasado - (dias * days);
+var horas = Math.floor(tiempoPasado / hours)
+
+tiempoPasado = tiempoPasado - (horas * hours);
+var minutos = Math.floor(tiempoPasado / mins)
+
+tiempoPasado = tiempoPasado - (minutos * mins);
+var segundos = Math.floor(tiempoPasado / segs)
+
+document.write(`<br/>Han pasado ${anos} años, ${meses} meses,  ${dias} dias, ${horas} horas, y ${minutos} minutos desde que naciste.`)
+
+    </script>
+</body>
+</html>
