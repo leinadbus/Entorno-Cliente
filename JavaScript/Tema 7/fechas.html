@@ -8,10 +8,29 @@
 </head>
 <body>
     <script>
-let fecNac1=new Date('1994-02-23');
-let fecNac2=new Date(1994,01,23);
 
-let dia= fecNac2.getDay();
+/*1. Crea dos variables fecNac1 y fecNac2 que contengan tu fecha de nacimiento. 
+La primera la creas pasándole una cadena y la segunda pasándole año, mes y día. */
+let usuarioDia=prompt('Introduce tu día de nacimiento');
+let numerousuariodia=parseInt(usuarioDia);
+
+let usuarioMes=prompt('Ahora tu mes de nacimiento en formato 00');
+let numerousuariomes=parseInt(usuarioMes)-1;
+
+let usuarioAño=prompt('Por ultimo di año de nacimiento en formato 0000');
+let numerousuarioaño=parseInt(usuarioAño);
+
+
+let fecNac1=new Date(numerousuarioaño,numerousuariomes,numerousuariodia);
+
+
+/*2. Usando la variable fecNac1 del ejercicio anterior: 
+•	Muestra el día de la semana en que naciste.                                                   
+*/
+
+let dia= fecNac1.getDay();
+let mesGuardado=fecNac1.getFullYear()
+// document.write('</br>AAAAAAA ', mesGuardado);
 
 function diaSemana (dia){
 switch (dia) {
@@ -39,47 +58,77 @@ switch (dia) {
 
     }
 }
-document.write('Has nacidio el ');
+document.write('Has nacidio el día de la semana: ');
 diaSemana(dia);
 
-
-fecNac1.setFullYear(2022);
+/*2. Usando la variable fecNac1 del ejercicio anterior:                                                    
+•	Modifica fecNac1 para que contenga la fecha de tu cumpleaños de este año (cambia sólo el año).
+*/
+fecNac1.setFullYear(2023);
 let dia2= fecNac1.getDay();
+
+/*2. Usando la variable fecNac1 del ejercicio anterior: 
+•	Muestra el día de la semana de tu cumpleaños de este año.
+*/
 document.write('</br>Fecha de año cambiada es: ',fecNac1.getFullYear(),' con el día: ');
 diaSemana(dia2);
 
+/*2. Usando la variable fecNac1 del ejercicio anterior: 
+•	Calcula el nº de días que han pasado desde que naciste hasta hoy.
+*/
 
-var nacimiento = new Date(1936, 11, 29)
-var hoy = new Date()
+fecNac1.setFullYear(mesGuardado);
+// document.write('</br>PPPPPPPPPP   ',fecNac1);
 
-var tiempoPasado= hoy - fecNac2
-var segs = 1000;
-var mins = segs * 60;
-var hours = mins * 60;
-var days = hours * 24;
-var months = days * 30.416666666666668;
-var years = months * 12;
+function diasPasados (fecNac1){
+    var hoy = new Date();
 
-//calculo 
-var anos = Math.floor(tiempoPasado / years);
+    let año22=hoy.getFullYear();
+    let mes22=hoy.getMonth();
+    let dias22=hoy.getDay();
+    let añosDiferencia= año22-fecNac1.getFullYear();
 
-tiempoPasado = tiempoPasado - (anos * years);
-var meses = Math.floor(tiempoPasado / months)
+    let mesesDiferencia= mes22-fecNac1.getMonth();
 
-tiempoPasado = tiempoPasado - (meses * months);
-var dias = Math.floor(tiempoPasado / days)
+    let diasDiferencia;
+        if(dias22>fecNac1.getDate()){
+            diasDiferencia= dias22-fecNac1.getDate();
+            
+        }else{
+            diasDiferencia= fecNac1.getDate()-dias22;
+            
+        }
 
-tiempoPasado = tiempoPasado - (dias * days);
-var horas = Math.floor(tiempoPasado / hours)
+    let resultado = (añosDiferencia*365) + (mesesDiferencia*30) + (diasDiferencia);
+    return resultado;
+}
+document.write('</br>Han pasado ', diasPasados(fecNac1), ' días desde que naciste');
 
-tiempoPasado = tiempoPasado - (horas * hours);
-var minutos = Math.floor(tiempoPasado / mins)
+/*3. Muestra en al menos 5 formatos distintos la fecha y la hora de hoy.*/
 
-tiempoPasado = tiempoPasado - (minutos * mins);
-var segundos = Math.floor(tiempoPasado / segs)
+let formato=new Date();
+document.write('</br></br>Cinco tipos de formato de fecha:');
+document.write('</br>',formato.toString());
+document.write('</br>',formato.toDateString());
+document.write('</br>',formato.toLocaleString());
+document.write('</br>',formato.toGMTString());
+document.write('</br>',formato.toISOString());
 
-document.write(`<br/>Han pasado ${anos} años, ${meses} meses,  ${dias} dias, ${horas} horas, y ${minutos} minutos desde que naciste.`)
 
+/*4. Comprueba si es mayor tu fecha de nacimiento o el 1 de enero de este año*/
+function fechaMayor(fecha1,fecha2){
+    let diasfecha1=diasPasados(fecha1);
+    let diasfecha2=diasPasados(fecha2);
+    if(diasfecha1>diasfecha2){
+        return fecha1.toDateString() + ' es mayor que '+ fecha2.toDateString();
+    }else {
+        return fecha2.toDateString() + ' es mayor que '+ fecha1.toDateString();
+    }
+}
+
+let unoEnero2022= new Date(2022,00,01)
+document.write('</br></br>Comprobación de fecha:');
+document.write('</br>',fechaMayor(fecNac1,unoEnero2022));
     </script>
 </body>
 </html>
