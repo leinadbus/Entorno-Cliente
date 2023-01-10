@@ -29,26 +29,69 @@
 
     <h2>Ejercicio 1</h2>
     <p>Introduce un número binario de 8 dígitos</p>
-    <input type="text" pattern="[0-1]{8}">
+    <input type="text" pattern="[0-1]{8}" required>
 
 
     <h2>Ejercicio 2</h2>
     <p>Crear cuenta en red social</p>
     <form>
       <label for="nombre">Nombre</label>
-      <input name="nombre" type="text">
+      <input name="nombre" type="text" minlength="3" maxlength="20" required>
+      <br>
       <label for="apellido">Apellido</label>
-      <input name="apellido" type="text">
+      <input name="apellido" type="text" minlength="4" maxlength="40" required>
+      <br>
       <label for="usuario">Usuario</label>
-      <input name="usuario" type="text">
+      <input name="usuario" type="text" minlength="7" pattern="[AZ-az-09]" required>
+      <br>
       <label for="correo">Correo</label>
-      <input name="correo" type="text">
+      <input name="correo" type="email" required>
+      <br>
       <label for="telefono">Telefono</label>
-      <input name="telefono" type="text">
+      <input name="telefono" type="text" pattern="[0-9]{9}" required>
+      <br>
       <label for="fecha">Fecha de Nacimiento</label>
-      <input name="fecha" type="text">
-      <input type="text">
-      <input type="text">
+      <input name="fecha" type="date" min="2005-01-01" required>
+    </form>
+    
+      <p>Marca tus intereses(mínimo2)</p>
+      <form min="2">
+      <input type="checkbox" name = "checkbox"> 
+      <label for="cbox1">Ciencia</label>
+      <input type="checkbox" name = "checkbox"> 
+      <label for="cbox2">Tecnología</label>
+      <input type="checkbox" name = "checkbox"> 
+      <label for="cbox3">Matemáticas</label>
+      <input type="checkbox" name = "checkbox"> 
+      <label for="cbox4">Deportes</label>
+      <input type="checkbox" name = "checkbox"> 
+      <label for="cbox5" name = "checkbox">Cine</label>
+      <button id = "btn" disabled> enable button</button>
+
+      <input type="file" id="foto_x" name="foto_x" required><br>
+
+      <script>
+
+      let checkbox = document.getElementsByName("checkbox");
+      let button = document.getElementById("btn"); 
+      let contador=0;
+
+        for (let i = 0; i < checkbox.length; i++) {
+          checkbox[i].addEventListener( "change", () => {
+          button.disabled = true;
+          if ( checkbox[i].checked == true ){
+                contador ++;
+                console.log("contador",contador);
+          }else {
+            contador --;
+            console.log("contador",contador);
+          }
+            if (contador >= 2){button.disabled = false;}  
+          });
+}
+        </script>
+
+      
     </form>
 
 
